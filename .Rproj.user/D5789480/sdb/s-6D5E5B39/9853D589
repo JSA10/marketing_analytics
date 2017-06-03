@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(tidyverse)\nlibrary(forcats)\ngetwd()\n",
+    "created" : 1496490097577.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1231836176",
+    "id" : "9853D589",
+    "lastKnownWriteTime" : 1496490153,
+    "last_content_update" : 1496490153344,
+    "path" : "~/Desktop/.Rprofile",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,83 @@
+So in this tutorial, we're going
+to learn how to compute recency, frequency, and
+mandatory value from the data set. We are starting from scratch,
+so we opened module 1.R. Everything is clean, nothing has been
+uploaded or loaded in our memory. So we going to read the data
+from the purchases.txt file, as we did in the previous tutorial. Here it is. The data contains now
+51,000 rows as usual. As we did last time,
+we going to transform and set column name so
+they're easier to manipulate and use. Later on, we're going to rename
+the columns customer ID, purchase amount, and date of purchase, using the column
+names instruction and function, we're going to tell r that this purchase
+is not a string as it believes to be, but it's a date in the format of years,
+months, date with a dash in between. We'll run it. And then we're going to compute
+something a bit specific. We're going to compute
+the number of days that lapse between January 1st, 2016 and
+the date of purchase in the data. So we need to compute the time difference
+between the very last day of the database. Actually the last day is December 31st,
+2015. You take the 1st day of 2016 and
+the date of purchase. And we're going to compute
+the difference in days and store that difference in a new
+variable called days since. We can actually aim to use
+that to compute recency. Okay, now it's done. If we look at the data we have. The days since January 1st,
+2016 and the date of purchase, in this case November 6th,
+2009 and everything else. Okay? Now, again you can have a look at
+the data with the summary on average, there's been 1,600 days
+between any purchase observed in the database and
+January 1st, 2016. And what we are going to do here
+is to compute directly recency, frequency, and averaged initial amount. And we can do that using
+an SQL like statement. So how does this work? Well it's a bit complex, so follow me. We are going to select the customer ID
+of every customer found in the database. The trick here is that it will only
+appear once for every customer. So even though we have 51,000
+purchases we'll only have as many unique customer IDs as there are in
+the database with that statement. Now, for each customer, we need to compute the minimum number of days
+between all of his or her purchases and January 1st, 2016. Now, of course, if we take the minimum
+number of days, then we are going to have the day of the last purchase,
+which is the very definition of recency. Then for each customer we need
+to compute the frequency, which is basically how many
+purchases that customer has made. The asterisk here
+basically means anything in the data that is related to that customer
+we could have put any known variable here, it wouldn't change and then for
+the amount we going to compute the average of purchase amount for
+that specific customer ID and name that aggregate computation as amount. Now, the trick is that we'd
+like to make sure that each row only appears one for each customer. So we going to compute that from the data
+and group by one, meaning that everything here is going to be computed and
+grouped per customer ID. And so if you run that statement, the output is a new data
+set named customers and as you can see,
+that data set only has 18,000 rows. Meaning that the only
+18,000 unique customers in this data set of 51,000 purchases. So 18,000 customers have made
+a total of 51,000 purchases. I should like to explore the data
+which we just created called customers, you can of course look at the head and
+as you can see for each customer ID we have the recency
+the number of days between his or her most recent purchase and January 1,
+2016. How many purchases that guy has made. That customer,
+customer id number 10 has made only one. And the average purchase amount is 30. If you compute some summary statistics
+about that new data set, called customers, you'll see that the average
+recency of a customer is 1200. So, on average customers have lapsed for
+about 4 years. Some have lapsed 10 years ago, some have lapsed only a few days ago,
+but the average is four years. The minimum is barely wonder, the maximum is pretty much
+the length of the entire data set. In terms of frequency,
+some have made only one purchase. Actually, many have
+made only one purchase. Some have made an astounding number
+of 45 purchases over their lifetime, or at least over the 10 or
+11 years we are observing, but on average,
+people have made 2.8 purchase. And then in terms of amount, the average
+amount goes from 5 to 4,500 and the mean is around $57 per
+purchase per individual. If you like to have
+a better look at the data, you can also look at the distribution
+of recency, frequency, and average donation amount by creating
+a histogram of the distribution. And as you can see,
+here we are talking about recency. So you have a few customers whose
+recency is about 4000 days, and a bunch of customers here whose
+recency is much more recent. About 100 days or so. If you look at the histogram
+in terms of frequency, it's even more extreme. Many people have made only 1 or
+2 purchases, and then when you go 5, 10, 20, 30 purchases, they are even
+rarer in the entire database. And then finally, in terms of amount,
+the chart doesn't look very nice, simply because you have a lot of customers
+who made purchases of $20, $50, $70. And then extremely few
+who made purchases of much larger amounts, like $4000. So one One thing you can do is to
+draw a histogram of customer amount. But making sure it shows many more breaks in the histogram
+than you'd have naturally. So you can click Run here. You'll have actually a much more
+detailed view of the histogram, and as you can see,
+most people spend around $40, $50. A few spend over $100 and extremely few spend above $200,
+on the average.

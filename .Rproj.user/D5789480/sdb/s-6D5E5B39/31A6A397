@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# __________________________________________________________\n# //////////////////////////////////////////////////////////\n#\n#    MODULE 0 - INTRODUCTION\n# __________________________________________________________\n# //////////////////////////////////////////////////////////\n\nlibrary(tidyverse)\n# --- EXPLORE THE DATA -------------------------------------\n\n\n# Load text file into local variable called 'data'\ndata = read.delim(file = 'purchases.txt', header = FALSE, sep = '\\t', dec = '.')\ndata <- read\n\n# Display what has been loaded\nhead(data)\nsummary(data)\n\n# Add headers and interpret the last column as a date, extract year of purchase\ncolnames(data) = c('customer_id', 'purchase_amount', 'date_of_purchase')\ndata$date_of_purchase = as.Date(data$date_of_purchase, \"%Y-%m-%d\")\ndata$year_of_purchase = as.numeric(format(data$date_of_purchase, \"%Y\"))\n\n# Display the data set after transformation\nhead(data)\nsummary(data)\n\n# Explore the data using simple SQL statements\nlibrary(sqldf)\n\n# Number of purchases per year\nx = sqldf(\"SELECT year_of_purchase, COUNT(year_of_purchase) AS 'counter' FROM data GROUP BY 1 ORDER BY 1\")\nbarplot(x$counter, names.arg = x$year_of_purchase)\n\n# Average purchase amount per year\nx = sqldf(\"SELECT year_of_purchase, AVG(purchase_amount) AS 'avg_amount' FROM data GROUP BY 1 ORDER BY 1\")\nbarplot(x$avg_amount, names.arg = x$year_of_purchase)\n\n# Total purchase amounts per year\nx = sqldf(\"SELECT year_of_purchase, SUM(purchase_amount) AS 'sum_amount' FROM data GROUP BY 1 ORDER BY 1\")\nbarplot(x$sum_amount, names.arg = x$year_of_purchase)\n\n# All in one\nx = sqldf(\"SELECT year_of_purchase,\n                  COUNT(year_of_purchase) AS 'counter',\n                  AVG(purchase_amount) AS 'avg_amount',\n                  SUM(purchase_amount) AS 'sum_amount'\n           FROM data GROUP BY 1 ORDER BY 1\")\nprint(x)",
+    "created" : 1496482057503.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "823217381",
+    "id" : "31A6A397",
+    "lastKnownWriteTime" : 1496490155,
+    "last_content_update" : 1496490155727,
+    "path" : "~/Documents/DataScience/courses/ESSEC_SBA/Marketing_Analytics/module0.R",
+    "project_path" : "module0.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,41 @@
+[MUSIC] In a previous video, we've showed that
+customers are grouped together based on how similar or
+dissimilar they are to one another. And that similarity can be
+seen as a measure of distance. If two customers are very similar,
+they are said to be close to one another. The issue that, sometimes,
+to compute how similar two customers are, we have to compare apples and oranges. For instance, if you'd like to group
+customers based on recency, frequency, and monetary value,
+you are basically comparing variables that are measured in terms of days,
+purchase occasions, and amounts. These segmentation variables do
+not even use the same scales. How do you compare one to another? In segmentation studies,
+data transformation is essential. You need to prepare and
+transform your data, so your segmentation variables can
+be compared to one another. When your segmentation variables
+do not use the same scales, you need to standardize them. In statistical terms, to standardize
+means that you subtract the mean and divide the data by its standard deviation. We won't go into the details,
+but it simply means that, regardless of the actual scales used for
+your segmentation variables, they will roughly be scaled back
+within a range between minus two and plus two with some external values
+falling outside that range. Now, regardless of what the original
+scale was in days, dollars, or purchase occasions,
+they can be compared to another. Another issue is to deal
+with data dispersion and the best example is probably
+about purchase amounts. When you look at the transactional
+database, many customers will buy for moderate amounts and only a few
+will buy for very large amounts. The distribution is said to be skewed and
+may look something like that. So what's the problem? The problem is not statistical,
+it's managerial. Would you say that a customer who
+spends $5 on average is different from someone who spends $15 instead? Well, definitely the latter
+generates three times more money at each purchase occasion. For a manager, they're definitely different, it might be
+best if they were in different segments. But what about two customers who
+spend $310 for the first and $320 for the second? From the managerial point of view,
+not a big different, right? Yet, from a statistical point of view, the difference in purchase
+amount Is exactly the same, $10. When you're facing that kind of situation, it might be worth transforming your data
+and taking the logarithm of the amount. Once you take the log, the distribution
+would look something like this. The same difference of $10 will have a
+huge impact on the left part of the chart, those who spend the least, but a minor
+influence on the right part of the chart, those who spend the most. It's not really necessary from
+a statistical point of view, but from a marginal point of view, the segmentation
+solution will make much more sense. Okay, now we are ready. In the next two videos, we prepare our
+data for segmentation purpose, and then, we'll run a segmentation and
+see what we got.
