@@ -128,3 +128,8 @@ table(members)
 # Show profile of each segment
 aggregate(customers_sample[, 2:4], by = list(members), mean)
 
+summary(members)
+members[260]
+members[5920]
+
+
